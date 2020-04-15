@@ -28,8 +28,32 @@ public class EntityUtils {
             entityTransactions.rollbackTx();
             return null;
         }
+        return  entity;
+    }
+
+    public MainEntity updateEntity(MainEntity entity) {
+        try {
+            entityTransactions.beginTx();
+            entity = em.merge(entity);
+            entityTransactions.commitTx();
+        } catch (Exception e) {
+            entityTransactions.rollbackTx();
+            return null;
+        }
 
         return  entity;
+    }
+
+    public boolean executeUpdate(Query query) {
+        try {
+            entityTransactions.beginTx();
+            query.executeUpdate();
+            entityTransactions.commitTx();
+        } catch (Exception e) {
+            entityTransactions.rollbackTx();
+            return false;
+        }
+        return true;
     }
 
 }

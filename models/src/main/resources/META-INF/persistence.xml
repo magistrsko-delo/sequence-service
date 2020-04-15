@@ -5,6 +5,7 @@
         <non-jta-data-source>jdbc/SequenceDB</non-jta-data-source>
 
         <class>si.fri.mag.entities.SequenceEntity</class>
+        <class>si.fri.mag.entities.SequenceMediaEntity</class>
 
         <properties>
             <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
