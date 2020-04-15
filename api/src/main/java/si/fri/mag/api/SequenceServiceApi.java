@@ -4,6 +4,7 @@ package si.fri.mag.api;
 import si.fri.mag.api.controllers.MainController;
 import si.fri.mag.api.controllers.RootController;
 import si.fri.mag.api.controllers.v1.SequenceController;
+import si.fri.mag.api.controllers.v1.SequenceMediaController;
 import si.fri.mag.api.mappers.EntityNotFoundMapper;
 import si.fri.mag.api.mappers.ForbiddenExceptionMapper;
 import si.fri.mag.api.mappers.InternalServerErrorMapper;
@@ -26,6 +27,7 @@ public class SequenceServiceApi extends Application {
         resources.add(MainController.class);
         resources.add(RootController.class);
         resources.add(SequenceController.class);
+        resources.add(SequenceMediaController.class);
         return resources;
     }
 }

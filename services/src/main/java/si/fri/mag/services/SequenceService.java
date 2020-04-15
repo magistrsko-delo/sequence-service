@@ -84,7 +84,7 @@ public class SequenceService {
     public SequenceMediaDTO updateSequence (SequenceDTO sequenceDTO) {
         SequenceEntity sequenceEntityFind = em.find(SequenceEntity.class, sequenceDTO.getSequenceId());
         if (sequenceEntityFind == null) {
-            throw new EntityNotFoundException("Project with id: " + sequenceDTO.getProjectId() + " does not exist");
+            throw new EntityNotFoundException("Sequence with id: " + sequenceDTO.getProjectId() + " does not exist");
         }
 
         SequenceEntity sequenceEntity = sequenceConverter.updateEntity(sequenceDTO, sequenceEntityFind);

@@ -1,5 +1,7 @@
 package si.fri.mag.entities;
 
+import si.fri.mag.interfaces.MainEntity;
+
 import javax.persistence.*;
 
 @Entity
@@ -15,8 +17,12 @@ import javax.persistence.*;
                 name = "deleteSequenceMedia",
                 query = "DELETE FROM sequence_media WHERE sequence_media.fk_sequence_id = ?1"
         ),
+        @NamedNativeQuery(
+                name = "deleteOneMediaInSequence",
+                query = "DELETE FROM sequence_media WHERE sequence_media.fk_sequence_id = ?1 and sequence_media.fk_media_id = ?2"
+        ),
 })
-public class SequenceMediaEntity {
+public class SequenceMediaEntity implements MainEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)

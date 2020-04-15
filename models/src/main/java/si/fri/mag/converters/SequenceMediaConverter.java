@@ -1,5 +1,6 @@
 package si.fri.mag.converters;
 
+import si.fri.mag.entities.SequenceEntity;
 import si.fri.mag.entities.SequenceMediaEntity;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -16,5 +17,14 @@ public class SequenceMediaConverter {
         }
 
         return mediaIds;
+    }
+
+    public SequenceMediaEntity toEntity(Integer mediaId, SequenceEntity sequenceEntity) {
+        SequenceMediaEntity sequenceMediaEntity =  new SequenceMediaEntity();
+        sequenceMediaEntity.setMediaId(mediaId);
+        sequenceMediaEntity.setSequenceEntity(sequenceEntity);
+
+        return sequenceMediaEntity;
+
     }
 }
