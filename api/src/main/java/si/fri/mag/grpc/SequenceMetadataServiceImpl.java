@@ -144,7 +144,7 @@ public class SequenceMetadataServiceImpl extends SequenceMetadataGrpc.SequenceMe
         return SequencemetadataService.Sequence.newBuilder()
                 .setSequenceId(sequenceDTO.getSequenceId())
                 .setName(sequenceDTO.getName())
-                .setProjectId(sequenceDTO.getSequenceId())
+                .setProjectId(sequenceDTO.getProjectId())
                 .setThumbnail(sequenceDTO.getThumbnail())
                 .setStatus(sequenceDTO.getStatus())
                 .setCreatedAt(sequenceDTO.getCreatedAt().getTime())
