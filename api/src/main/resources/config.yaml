@@ -13,8 +13,32 @@ kumuluzee:
       username: admin_uros
       password: admin_uros123
       max-pool-size: 20
+  health:
+    checks:
+      data-source-health-check:
+        type: liveness
+        jndi-name: jdbc/SequenceDB
+  opentracing:
+    jaeger:
+      service-name: mag2020-sequence-service # if not set kumuluzee.name value is used
+      agent-host: localhost # default agent host
+      agent-port: 5775 # default agent port
+      reporter:
+        log-spans: true
+        max-queue-size: 10000
+        flush-interval: 1000
+      sampler:
+        type: const # default sampler type
+        param: 1 # default sampler param
+        manager-host-port: http://localhost:5775
+      traceid-128bit: true
   grpc:
     server:
       url: localhost
       http:
         port: 9006
+mp:
+  opentracing:
+    server:
+      operation-name-provider: http-path
+      skip-pattern: /openapi.*|/health.*
